@@ -1,30 +1,37 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import { createRouter } from 'vue-router'
 import TeamsList from './components/teams/TeamsList.vue';
 import UsersList from './components/users/UsersList.vue';
-import { createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, routerKey } from 'vue-router';
+import TeamMembers from './components/teams/TeamMembers.vue';
+
+
 
 const router = createRouter({
-    history:createWebHistory(),
-     routes:[
+    history: createWebHistory(),
+    routes: [
         {
-            path:'/teams',
-            component:TeamsList,
+            path: '/',
+            component: TeamsList
         },
         {
-            path:'/users',
-            component:UsersList
+            path: '/teams',
+            component: TeamsList
+        },
+        {
+            path: '/users',
+            component: UsersList
+        },{
+            path: '/teams/:teamId',
+            component: TeamMembers
         }
-     ]
-});
+    ]
+}
+)
 
 const app = createApp(App)
-app.use(router)
+app.use(router);
 app.mount('#app')
 
-// App.Use(router);
 
-
-// createApp(App).mount('#app')

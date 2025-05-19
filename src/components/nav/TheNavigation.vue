@@ -3,17 +3,20 @@
     <nav>
       <ul>
         <li>
-          <router-link to="/teams" class="nBtn" >Team</router-link>
+          <router-link to="/teams"  class="nBtn" >Teams</router-link>
         </li>
         <li>
-          <router-link to="/users" class="nBtn" >User</router-link>
+         <router-link   to="/users"  class="nBtn" >Users</router-link>
         </li>
       </ul>
     </nav>
   </header>
+ 
 </template>
 
 <script>
+
+
 export default {
 }
   

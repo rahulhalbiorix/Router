@@ -4,6 +4,7 @@
     <div class="team-members">{{ memberCount }} Members</div>
     <a href="#">View Members</a>
   </li>
+  
 </template>
 
 <script>

@@ -1,6 +1,7 @@
 <template>
+ 
   <ul>
-    <TeamsItem
+    <TeamsItem style="border: 2px solid black;background-color: lightsalmon;"
       v-for="team in teams"
       :key="team.id"
       :name="team.name"
@@ -8,14 +9,16 @@
     ></TeamsItem>
   
   </ul>
+ 
 </template>
 
 <script>
+
 import TeamsItem from './TeamsItem.vue';
 
 export default {
   components: {
-    TeamsItem,
+    TeamsItem
   },
   inject: ['teams'],
 };
@@ -27,5 +30,6 @@ ul {
   margin: 2rem auto;
   max-width: 40rem;
   padding: 0;
+  background-color: pink;
 }
 </style>

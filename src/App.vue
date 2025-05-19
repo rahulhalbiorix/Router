@@ -1,14 +1,18 @@
 <template>
-  <TheNavigation @set-page="setActivePage"></TheNavigation>
-  <main>
-    <router-view></router-view>
+  <TheNavigation></TheNavigation>
+  <main style="border: 3px solid white;background-color:  lightgreen;" >
+     <router-view></router-view>
   </main>
+  <footer style="background-color:lightseagreen;border: 3px solid black;" >
+    
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa nulla atque vero in ex sequi, assumenda aspernatur, accusantium incidunt optio sapiente quia, itaque tenetur necessitatibus. Expedita natus veniam totam! Nostrum enim, in similique quis repellat consectetur molestias? Eligendi quidem, obcaecati saepe, itaque suscipit voluptates rerum voluptas vitae quo ipsam corrupti.</p>
+  </footer>
 </template>
 
 <script>
-import TeamsList from './components/teams/TeamsList.vue';
-import UsersList from './components/users/UsersList.vue';
+
 import TheNavigation from './components/nav/TheNavigation.vue';
+
 
 export default {
   components: {
@@ -39,9 +43,7 @@ export default {
     };
   },
   methods: {
-    setActivePage(page) {
-      this.activePage = page;
-    },
+  
   },
 };
 </script>

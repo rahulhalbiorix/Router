@@ -1,10 +1,12 @@
 <template>
-  <!-- <button @click="gotoTeam" >
-    confirm
-  </button> -->
+
   <ul>
-    <UserItem v-for="user in users" :key="user.id" :name="user.fullName" :role="user.role"></UserItem>
+    <UserItem  style="border: 2px solid red;"  v-for="user in users" :key="user.id" :name="user.fullName" :role="user.role"></UserItem>
+     <button class="btn btn-primary" @click="backtohome"  >
+    ⬅️ Back to Home Page
+  </button>
   </ul>
+   
 </template>
 
 <script>
@@ -16,11 +18,12 @@ export default {
   },
   inject: ['users'],
   methods:{
-
-    // gotoTeam(){
-    //   this.$router.push('teams')  
-    //   programatically give navigation
-    // }
+    backtohome(){
+      console.log("back to home!")
+        this.$router.push('/teams');
+           console.log(this.$router)
+    }
+   
   }
 };
 </script>
