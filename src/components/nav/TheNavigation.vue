@@ -3,15 +3,15 @@
     <nav>
       <ul>
         <li>
-          <router-link to="/teams"  class="nBtn" >Teams</router-link>
+          <router-link to="/teams" class="nBtn">Teams</router-link>
         </li>
         <li>
-         <router-link   to="/users"  class="nBtn" >Users</router-link>
+          <router-link to="/users" class="nBtn">Users</router-link>
         </li>
       </ul>
     </nav>
   </header>
- 
+
 </template>
 
 <script>
@@ -19,7 +19,7 @@
 
 export default {
 }
-  
+
 
 </script>
 
@@ -58,17 +58,16 @@ li {
   padding: 0.5rem 1.5rem;
   display: inline-block;
   text-decoration: none;
- }
+}
 
-.nBtn:hover
-{
+.nBtn:hover {
   color: #f1a80a;
   border-color: #f1a80a;
   background-color: #1a037e;
 }
 
 .router-link-active.nBtn {
-    color: #f1a80a;
+  color: #f1a80a;
   border-color: #f1a80a;
   background-color: #1a037e;
 }

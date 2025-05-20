@@ -1,7 +1,7 @@
 <template>
 
   <ul>
-    <UserItem  style="border: 2px solid red;"  v-for="user in users" :key="user.id" :name="user.fullName" :role="user.role"></UserItem>
+    <UserItem  v-for="user in users" :key="user.id" :name="user.fullName" :role="user.role"></UserItem>
      <button class="btn btn-primary" @click="backtohome"  >
     ⬅️ Back to Home Page
   </button>

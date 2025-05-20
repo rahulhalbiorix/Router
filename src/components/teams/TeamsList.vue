@@ -3,13 +3,13 @@
   <ul>
     <TeamsItem style="border: 2px solid black;background-color: lightsalmon;"
       v-for="team in teams"
+      :id="team.id"
       :key="team.id"
       :name="team.name"
       :member-count="team.members.length"
-    ></TeamsItem>
-  
+    ></TeamsItem>  
   </ul>
- 
+
 </template>
 
 <script>

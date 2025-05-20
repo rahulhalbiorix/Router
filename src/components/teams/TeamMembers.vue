@@ -2,17 +2,19 @@
   <section>
     <h2> {{ teamName }} </h2>
     <ul>
-      <UserItem v-for="member of members" :key="member.id" :name="member.fullName" :role="member.role">
+      <UserItem v-for="member of members"  :id="member.id"  :key="member.id" :name="member.fullName" :role="member.role">
       </UserItem>
     </ul>
   </section>
 </template>
 
 <script>
+import { watch } from 'vue';
 import UserItem from '../users/UserItem.vue';
 
 export default {
   inject: ['teams', 'users'],
+  props:['teamId'],
 
   components:{
     UserItem
@@ -25,7 +27,25 @@ export default {
     };
   },
   created() {
-    const teamId = this.$route.params.teamId
+      this.loadTeamMember(this.teamId);
+
+  },
+  watch:{
+          teamId(newteamId) {
+            console.log("ascsd",newteamId );
+              this.loadTeamMember(newteamId);
+          }
+       },
+
+  methods: {
+    roleClass(role) {
+      if (role === 'Engineer') return 'role--engineer';
+      if (role === 'Consultant') return 'role--consultant';
+      return '';
+    },
+    loadTeamMember(teamId){
+
+       console.log("team id is" , teamId);
     const selectedTeams = this.teams.find(team => team.id == teamId);
     console.log(selectedTeams);
     const members = selectedTeams.members;
@@ -39,15 +59,8 @@ export default {
       this.members = selectedMembers;
       this.teamName = selectedTeams.name;
     }
-    console.log("s m ", selectedMembers);
-  },
-
-  methods: {
-    roleClass(role) {
-      if (role === 'Engineer') return 'role--engineer';
-      if (role === 'Consultant') return 'role--consultant';
-      return '';
-    },
+    console.log("s m ", selectedMembers);    
+    }
   },
 };
 </script>
