@@ -3,9 +3,8 @@
   <main style="border: 3px solid white;background-color:  lightgreen;" >
      <router-view></router-view>
   </main>
-  <footer style="background-color:lightseagreen;border: 3px solid black;" >
-    
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa nulla atque vero in ex sequi, assumenda aspernatur, accusantium incidunt optio sapiente quia, itaque tenetur necessitatibus. Expedita natus veniam totam! Nostrum enim, in similique quis repellat consectetur molestias? Eligendi quidem, obcaecati saepe, itaque suscipit voluptates rerum voluptas vitae quo ipsam corrupti.</p>
+  <footer>
+    <router-view name="footer"></router-view>
   </footer>
 </template>
 

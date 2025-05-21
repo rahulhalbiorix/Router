@@ -15,15 +15,18 @@ import UserItem from '../users/UserItem.vue';
 export default {
   inject: ['teams', 'users'],
   props:['teamId'],
-
+  
   components:{
     UserItem
   },
-
+  
   data() {
+    // console.log(this.$route);
+    // console.log(this.$route.query);
     return {
       teamName: "",
-      members: []
+      members: [],
+      hasUnsavedChanges: true,
     };
   },
   created() {
@@ -32,10 +35,32 @@ export default {
   },
   watch:{
           teamId(newteamId) {
-            console.log("ascsd",newteamId );
+            // console.log("ascsd",newteamId );
               this.loadTeamMember(newteamId);
           }
        },
+
+   beforeRouteLeave(to,from,next){
+        console.log("[before route leave] to " , to);
+        console.log("[before route leave] from " , from);
+        if(this.hasUnsavedChanges){
+              let answer  =  confirm("Your are not save updated file! you want to save your changes")   
+                 
+              if(answer){
+               alert('✅ changfes will be save');
+               next()
+              }
+              else{
+                alert("❌ cahnges not commited ");
+                next(false);
+              }
+
+            }
+            else{
+              alert("🥳🥳🥳No changes have been done yet!");
+              next()
+            }
+   },
 
   methods: {
     roleClass(role) {
@@ -45,21 +70,21 @@ export default {
     },
     loadTeamMember(teamId){
 
-       console.log("team id is" , teamId);
+      //  console.log("team id is" , teamId);
     const selectedTeams = this.teams.find(team => team.id == teamId);
-    console.log(selectedTeams);
+    // console.log(selectedTeams);
     const members = selectedTeams.members;
-    console.log(members);
+    // console.log(members);
     const selectedMembers = [];
     for (let member of members) {
       const selectedUser = this.users.find(user => user.id == member);
-      console.log(selectedUser);
+      // console.log(selectedUser);
       selectedMembers.push(selectedUser);
 
       this.members = selectedMembers;
       this.teamName = selectedTeams.name;
     }
-    console.log("s m ", selectedMembers);    
+    // console.log("s m ", selectedMembers);    
     }
   },
 };

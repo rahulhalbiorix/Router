@@ -2,14 +2,23 @@
   <li>
     <h3>{{ name }}</h3>
     <div class="team-members">{{ memberCount }} Members</div>
-    <router-link :to="'/teams/' + id" >View Members</router-link>
+    <!-- <router-link :to="{ name:'Team-Members', params:{teamId:id} }" >View Members</router-link> -->
+    <router-link :to="toViewMember" >View Members</router-link>  <!--using computed property-->
   </li>
   
 </template>
 
 <script>
 export default {
+
   props: ['name', 'memberCount' , 'id'],
+   computed:{
+    toViewMember(){
+      // console.log("view member is work");
+      return { name:'Team-Members', params:{teamId:this.id} , query:{sort:'abbdhdhdh'} }
+    }
+   }
+
 };
 </script>
 

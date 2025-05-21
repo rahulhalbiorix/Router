@@ -1,5 +1,5 @@
 <template>
- 
+  <router-view></router-view>
   <ul>
     <TeamsItem style="border: 2px solid black;background-color: lightsalmon;"
       v-for="team in teams"
